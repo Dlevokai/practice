@@ -1,0 +1,6 @@
+Update Requests
+set Status = 'Closed' 
+where RequestID in (with apt_count as (select s.aptID from Apartments s
+where s.BuildingID = 1)
+select RequestId from Requests Join apt_count On 
+apt_count.aptID = Requests.aptID)

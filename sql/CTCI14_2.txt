@@ -1,0 +1,8 @@
+
+with some_rows as (select Apartments.BuildingID from Apartments Join Requests On
+Apartments.aptID = Requests.AptID where 
+Requests.Status = 'open')
+select Buildings.BuildingName, count(Buildings.BuildingName) cnt from Buildings 
+join some_rows On 
+some_rows.BuildingID = Buildings.BuildingID 
+group by Buildings.BuildingName
