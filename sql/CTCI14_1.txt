@@ -1,0 +1,10 @@
+select subsel.TenantName, subsel.CNT
+from (select Tenants.TenantName, count(Apartments.UnitNumber) CNT 
+from Tenants 
+Left Join AptTenants on 
+Tenants.TenantID = AptTenants.TenantID 
+Left Join Apartments on
+AptTenants.AptID = Apartments.AptID 
+group by Tenants.TenantName) subsel where
+subsel.CNT > 1;                                                              
+                                                             

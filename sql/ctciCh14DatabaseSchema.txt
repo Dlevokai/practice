@@ -1,0 +1,41 @@
+Create Table Apartments (AptID INT, UnitNumber VARCHAR(10), BuildingID int);
+Create Table Buildings (BuildingID INT, ComplexID INT, BuildingName VARCHAR(100), Address Varchar(500));
+Create Table Requests (RequestID int, Status varchar(100), aptID int, Description varchar(500));
+Create Table Complexes (ComplexID int, ComplexName varchar(100));
+Create Table AptTenants (TenantID int, AptID int);
+Create Table Tenants (TenantID int, TenantName varchar(100));
+
+INSERT ALL
+   INTO Apartments (aptID, UnitNumber, BuildingID) VALUES (001, 'un1', 1)
+   INTO Apartments (aptID, UnitNumber, BuildingID) VALUES (002, 'un2', 1)
+   INTO Apartments (aptID, UnitNumber, BuildingID) VALUES (003, 'un3', 2)
+SELECT 1 FROM DUAL;
+
+INSERT ALL
+   INTO Buildings (BuildingID, ComplexID, BuildingName, Address) VALUES (1, 666, 'First Building', 'Building1Way Drive')
+   INTO Buildings (BuildingID, ComplexID, BuildingName, Address) VALUES (2, 666, 'Second Building', 'Building2Way Drive')
+   INTO Buildings (BuildingID, ComplexID, BuildingName, Address) VALUES (3, 777, 'Third Building', 'Building3Way Drive')
+SELECT 1 FROM DUAL;
+
+INSERT ALL
+   INTO Requests (RequestID, Status, AptID, Description) VALUES (1000, 'waiting', 001, 'fix water')
+   INTO Requests (RequestID, Status, AptID, Description) VALUES (1001, 'done', 001, 'fix locks')
+   INTO Requests (RequestID, Status, AptID, Description) VALUES (1002, 'new', 002, 'fix ac')
+SELECT 1 FROM DUAL;
+
+INSERT ALL
+   INTO Complexes (ComplexID, ComplexName) VALUES (666, 'FabulousComplex')
+   INTO Complexes (ComplexID, ComplexName) VALUES (777, 'BadComplex')
+SELECT 1 FROM DUAL;
+
+INSERT ALL
+   INTO AptTenants (TenantID, AptID) VALUES (1234, 001)
+   INTO AptTenants (TenantID, AptID) VALUES (2345, 002)
+   INTO AptTenants (TenantID, AptID) VALUES (3456, 003)
+SELECT 1 FROM DUAL;
+
+INSERT ALL
+   INTO Tenants (TenantID, TenantName) VALUES (1234, 'Jonny')
+   INTO Tenants (TenantID, TenantName) VALUES (2345, 'William')
+   INTO Tenants (TenantID, TenantName) VALUES (3456, 'Cristina')
+SELECT 1 FROM DUAL;
